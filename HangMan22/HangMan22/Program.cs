@@ -30,6 +30,7 @@ namespace HangMan
 
             // Build an empty character array of the same length
             // as the chosen word to check the player's input against
+            char[] chosenWordCopy = chosenWord.ToCharArray();
 
             while (true)
             {
@@ -52,6 +53,12 @@ namespace HangMan
                     playerChoice = playerInput?[0];
 
                     Console.WriteLine("You have chosen " + playerChoice);
+
+                    int checkIndex = chosenWordCopy.IndexOf(playerChoice);
+                    if (checkIndex >= 0)
+                    {
+                        chosenWordCopy[checkIndex] = '*';
+                    }
                 }
             }
 
