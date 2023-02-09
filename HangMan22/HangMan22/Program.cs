@@ -11,21 +11,36 @@ namespace HangMan
     {
         static void Main(string[] args)
         {
-            string playerInput;
-            playerInput = Console.ReadLine();
+            bool playerWon = false;
 
-            char? playerChoice;
-            if (playerInput == null && playerInput != "")
+            while (true)
             {
-                playerChoice = playerInput?[0];
-            }
-            else
-            {
-                playerChoice = '*';
-            }
-            
+                // The null-conditional operator allows our
+                // string variable to accept a possible null
+                // value from ReadLine
+                string? playerInput;
+                playerInput = Console.ReadLine();
 
-            Console.WriteLine(playerChoice);
+                char? playerChoice;
+                if (playerInput != null && playerInput != "")
+                {
+                    if (playerInput == "quit")
+                    {
+                        // If the player types quit then
+                        // leave the game loop.
+                        break;
+                    }
+
+                    playerChoice = playerInput?[0];
+
+                    Console.WriteLine("You have chosen " + playerChoice);
+                }
+            }
+
+            if (playerWon)
+            {
+                Console.WriteLine("You won the game!");
+            }
         }
     }
 }
