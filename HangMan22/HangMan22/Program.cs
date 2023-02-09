@@ -11,7 +11,25 @@ namespace HangMan
     {
         static void Main(string[] args)
         {
+            string[] wordBank =
+            {
+                "james",
+                "mark",
+                "luke",
+                "john",
+                "acts",
+                "romans"
+            };
+
             bool playerWon = false;
+
+            // Select a word randomly from the word bank
+            Random random = new Random();
+            int randomWordIndex = random.Next(0, wordBank.Length);
+            string chosenWord = wordBank[randomWordIndex];
+
+            // Build an empty character array of the same length
+            // as the chosen word to check the player's input against
 
             while (true)
             {
